@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Twist: Comprehensive Guide</title>
     <style>
         body {
@@ -21,99 +19,37 @@
             text-align: center;
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
-            margin-bottom: 30px;
         }
         h2 {
             border-bottom: 1px solid #3498db;
             padding-bottom: 5px;
         }
-        h3 {
-            margin-top: 25px;
-        }
         h4 {
-            margin-top: 20px;
-        }
-        .important-note {
-            background-color: #f8f9fa;
-            border-left: 4px solid #e74c3c;
-            padding: 10px 15px;
-            margin: 20px 0;
-        }
-        .character-list {
-            column-count: 2;
-            column-gap: 40px;
-        }
-        .day-section {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        .time-block {
-            background-color: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 10px 15px;
-            margin: 15px 0;
-        }
-        .score-req {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        .score-gain {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        .rng-note {
-            color: #8e44ad;
-            font-style: italic;
+            margin-bottom: 5px;
         }
         ul {
             padding-left: 20px;
         }
-        li {
-            margin-bottom: 8px;
-        }
-        .checklist li {
-            list-style-type: none;
-            position: relative;
-            padding-left: 25px;
-        }
-        .checklist li:before {
-            content: "☐";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
         .note {
-            background-color: #f8f9fa;
-            border-left: 4px solid #f39c12;
-            padding: 10px 15px;
-            margin: 15px 0;
-        }
-        .interaction {
-            border-left: 4px solid #2ecc71;
-            padding: 10px 15px;
-            margin: 15px 0;
-            background-color: #f9f9f9;
-        }
-        .version-header {
-            background-color: #34495e;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 3px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .character-scores {
             font-style: italic;
             color: #7f8c8d;
-            margin-bottom: 15px;
+            margin: 5px 0;
+        }
+        .score-req {
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .interaction {
+            border-left: 3px solid #2ecc71;
+            padding-left: 15px;
+            margin-bottom: 20px;
         }
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
-            border-radius: 5px 5px 0 0;
+            margin-bottom: 20px;
         }
         .tab button {
             background-color: inherit;
@@ -123,7 +59,7 @@
             cursor: pointer;
             padding: 14px 16px;
             transition: 0.3s;
-            font-size: 17px;
+            font-size: 16px;
         }
         .tab button:hover {
             background-color: #ddd;
@@ -137,16 +73,58 @@
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
-            border-radius: 0 0 5px 5px;
-            animation: fadeEffect 1s;
         }
-        @keyframes fadeEffect {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        .version-header {
+            background-color: #34495e;
+            color: white;
+            padding: 10px;
+            margin-top: 0;
+        }
+        .max-scores {
+            background-color: #ecf0f1;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .checklist li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .checkbox {
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            user-select: none;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #7f8c8d;
+        }
+        .completed .checkbox {
+            color: #2ecc71;
+        }
+        button#saveBtn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button#saveBtn:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
+    <div style="text-align: center; margin: 10px 0;">
+        <button onclick="saveProgress()" style="background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Save Progress</button>
+    </div>
     <h1>The Twist: Comprehensive Guide</h1>
 
     <h2>Table of Contents</h2>
@@ -161,11 +139,11 @@
         </li>
         <li>Walkthrough
             <ul>
-                <li>Early Game (Version 0.04)</li>
-                <li>Mid-Game (Version 0.05-0.06)</li>
-                <li>Mid-Late Game (Version 0.07-0.08)</li>
-                <li>Late Game (Version 0.09-0.10)</li>
-                <li>End-Game (Version 0.11+)</li>
+                <li>Version 0.04</li>
+                <li>Version 0.05-0.06</li>
+                <li>Version 0.07-0.08</li>
+                <li>Version 0.09-0.10</li>
+                <li>Version 0.11+</li>
             </ul>
         </li>
         <li>Conclusion</li>
@@ -176,14 +154,11 @@
     
     <p>The guide is organized by game versions and character relationship progression, with each section detailing the specific time requirements, character interactions, item needs, and special conditions necessary to progress. By following this guide, you'll be able to experience all the content the game has to offer while ensuring you don't miss any important events or interactions.</p>
     
-    <div class="important-note">
-        <strong>Important Note About RNG:</strong> Many character locations and events in the game are determined by RNG (random number generation). If you don't find a character in the expected location, try leaving and re-entering the area, or return at a different time. Some locations with particularly variable character presence include the Studio, Pool, Living Room, Bedroom, and School Hallway. For events with RNG elements, the guide specifies the success rates and may require multiple attempts. 
-    </div>
+    <div><strong>Important Note About RNG:</strong> Many character locations and events in the game are determined by RNG (random number generation). If you don't find a character in the expected location, try leaving and re-entering the area, or return at a different time. Some locations with particularly variable character presence include the Studio, Pool, Living Room, Bedroom, and School Hallway. For events with RNG elements, the guide specifies the success rates and may require multiple attempts.</div>
 
     <h2>Game Mechanics Overview</h2>
-
     <h3>Characters</h3>
-    <div class="character-list">
+    <div>
         <ul>
             <li><strong>Jason:</strong> Main character, player-controlled protagonist</li>
             <li><strong>Janice:</strong> Jason's and Julia's mother (stepmother?)</li>
@@ -209,7 +184,6 @@
     </div>
 
     <h3>Important Game Mechanics</h3>
-
     <h4>Cheats</h4>
     <p>Access the cheats menu by going to the hallway during the day and holding C while pressing H. Within this menu, you can:</p>
     <ul>
@@ -246,7 +220,6 @@
         <li>Score of 30+: She also wears the outfit at night</li>
         <li>Score of 50+ with latex outfit: She wears it at the pool as well</li>
     </ul>
-
     <p>Different outfits have different maximum scores:</p>
     <ul>
         <li>Daily clothes: 1</li>
@@ -271,7 +244,6 @@
         <li><strong>Bedroom:</strong> Available in the early game</li>
         <li><strong>Julia's room:</strong> Available after developing a closer relationship with Julia</li>
     </ul>
-
     <p>Special conditions:</p>
     <ul>
         <li>When John is home, Jason's bed becomes the default (until you decide John's fate in the late game)</li>
@@ -279,7 +251,6 @@
     </ul>
 
     <h3>Items to Purchase</h3>
-
     <h4>Pharmacy Shop</h4>
     <ul>
         <li><strong>Suntan Lotion:</strong> 3 pieces ($20)</li>
@@ -295,73 +266,71 @@
     </ul>
 
     <h2>Walkthrough</h2>
-
     <div class="tab">
-        <button class="tablinks" onclick="openVersion(event, 'Early')" id="defaultOpen">Early Game (v0.04)</button>
-        <button class="tablinks" onclick="openVersion(event, 'Mid')">Mid-Game (v0.05-0.06)</button>
-        <button class="tablinks" onclick="openVersion(event, 'MidLate')">Mid-Late Game (v0.07-0.08)</button>
-        <button class="tablinks" onclick="openVersion(event, 'Late')">Late Game (v0.09-0.10)</button>
-        <button class="tablinks" onclick="openVersion(event, 'End')">End-Game (v0.11+)</button>
+        <button class="tablinks" onclick="openVersion(event, 'v004')" id="defaultOpen">Version 0.04</button>
+        <button class="tablinks" onclick="openVersion(event, 'v005006')">Version 0.05-0.06</button>
+        <button class="tablinks" onclick="openVersion(event, 'v007008')">Version 0.07-0.08</button>
+        <button class="tablinks" onclick="openVersion(event, 'v009010')">Version 0.09-0.10</button>
+        <button class="tablinks" onclick="openVersion(event, 'v011plus')">Version 0.11+</button>
     </div>
 
-    <div id="Early" class="tabcontent">
+    <!-- Version 0.04 content -->
+    <div id="v004" class="tabcontent">
         <div class="version-header">Version 0.04</div>
-        <div class="character-scores">Maximum Character Scores: Janice: 240, Julia: 160, Kelly: 60, Emma: 65</div>
-
+        <div class="max-scores">Maximum Character Scores: Janice: 240, Julia: 160, Kelly: 60, Emma: 65</div>
+        
         <div class="interaction">
             <h4>Initial Setup</h4>
             <ul class="checklist">
-                <li>Go to the dining room and click on the cabinet door to the left of Jason to obtain a whisky bottle.</li>
-                <li>Go to the kitchen and click on the fridge to get a lemonade.</li>
+                <li>Go to the dining room. Click on the cabinet door left to Jason. He gets a whisky bottle.</li>
+                <li>Go to the kitchen. Click on the fridge. Jason gets a lemonade.</li>
             </ul>
         </div>
 
         <div class="interaction">
             <h4>Conversation with Janice</h4>
-            <p class="rng-note">Time-specific: Only available at 15:00 or 19:00</p>
+            <p class="note">Time-specific: Only available at 15:00 or 19:00</p>
             <ul class="checklist">
-                <li>Find Janice drinking whisky in the dining room.</li>
-                <li>Click on "Sit by the table" to initiate a conversation.</li>
-                <li>Jason gives Janice the whisky bottle in exchange for information about the argument.</li>
+                <li>Catch Janice drinking whisky in the dining room (15:00 or 19:00). Click on "Sit by the table". Janice's whisky bottle is empty.</li>
+                <li>Jason gives Janice a new whisky bottle in exchange for telling him about the argument she and his dad had the other night.</li>
                 <li>Learn that Jason and Julia are adopted.</li>
             </ul>
         </div>
 
         <div class="interaction">
             <h4>Informing Julia</h4>
-            <p class="rng-note">RNG-based: Julia can be found either in the living room checking her phone or sitting in the tub by the pool.</p>
+            <p class="note">RNG-based: Julia can be found either in the living room checking her phone or sitting in the tub by the pool.</p>
             <ul class="checklist">
-                <li>Find Julia in the living room or by the pool.</li>
-                <li>Click on "Sit next to her" or "Approach her" depending on her location.</li>
+                <li>Catch Julia in the living room checking her phone and click on "Sit next to her" or catch Julia sitting in the tub by the pool and click on "Approach her".</li>
                 <li>Tell Julia about being adopted (she won't believe you yet).</li>
             </ul>
         </div>
 
         <div class="interaction">
             <h4>Increasing Janice's Score</h4>
-            <p class="rng-note">Repeat these scenes to build relationship with Janice:</p>
+            <p class="note">Repeat these scenes to build relationship with Janice:</p>
             <ul class="checklist">
-                <li>Kitchen Scene: Help Janice pick up the sponge when prompted. As Jason gets back up, he slides his face into Janice's crotch (<span class="score-gain">+5 score, up to 40</span>).</li>
-                <li>Living Room Scene: Find Janice reading a book and click on "massage shoulders" (<span class="score-gain">+5 score, up to 50</span>).</li>
+                <li>Kitchen Scene: Help Janice pick up the sponge when prompted. As Jason gets back up, he slides his face into Janice's crotch (+5 score, up to 40).</li>
+                <li>Living Room Scene: Find Janice reading a book and click on "massage shoulders" (+5 score, up to 50).</li>
             </ul>
         </div>
 
         <div class="interaction">
             <h4>Pool Interaction with Janice</h4>
             <p class="score-req">Requires Janice's score to be at least 35</p>
-            <p class="rng-note">RNG-based: Janice's presence at the pool is random and may require multiple visits.</p>
+            <p class="note">RNG-based: Janice's presence at the pool is random and may require multiple visits.</p>
             <ul class="checklist">
                 <li>Find Janice at the pool laying on the lounger.</li>
                 <li>Click on "Come closer" and then "Happy to!"</li>
-                <li>Click on "move her leg" to get a nice view (<span class="score-gain">+10 score</span>).</li>
+                <li>Click on "move her leg" to get a nice view (+10 score).</li>
                 <li>Click on "leave her be" to end the scene.</li>
             </ul>
         </div>
 
         <div class="interaction">
             <h4>Bedroom Interaction with Janice</h4>
-            <p class="rng-note">Time-specific: Only available between 20:00 and 22:00</p>
-            <p class="rng-note">RNG-based: 50% chance Janice catches Jason touching her. Repeat until successful.</p>
+            <p class="note">Time-specific: Only available between 20:00 and 22:00</p>
+            <p class="note">RNG-based: 50% chance Janice catches Jason touching her. Repeat until successful.</p>
             <ul class="checklist">
                 <li>Visit the bedroom when Janice is taking a nap.</li>
                 <li>Click on "Get on the bed" to have Jason caress Janice's ass.</li>
@@ -382,34 +351,34 @@
             <ul class="checklist">
                 <li>Find Julia sitting in the tub by the pool and click on "Approach her".</li>
                 <li>Jason gives Julia the lemonade and sits next to her in the tub.</li>
-                <li>Jason convinces Julia that they are adopted (<span class="score-gain">+10 to Julia's score</span>).</li>
+                <li>Jason convinces Julia that they are adopted (+10 to Julia's score).</li>
                 <li>This unlocks Julia's scenes in the living room.</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Comforting Julia</h4>
-            <p class="rng-note">Two possible scenes depending on Julia's score:</p>
+            <h4>Comforting Julia (Step 9)</h4>
+            <p class="note">Two possible scenes based on Julia's score</p>
             <ul class="checklist">
-                <li>Find Julia crying in the living room and click on "Get closer".</li>
-                <li>If Julia's score is lower than 30: Julia tells Jason that her boyfriend Rick said mean things. Jason comforts and hugs her (<span class="score-gain">+5 to Julia's score, up to 30</span>).</li>
-                <li>If Julia's score is 30 or higher: Julia tells Jason that Rick said her boobs are pathetic. Jason comforts her and may progress to touching and sucking her breasts (<span class="score-gain">+10 to Julia's score, up to 50</span>).</li>
-                <li>For 100% success with the intimate option, Julia's score must be 50 or higher.</li>
+                <li>Catch Julia crying in the living room. Click on "Get closer".</li>
+                <li>If Julia's score is lower than 30: Julia tells Jason that her boyfriend Rick said some mean things to her. Jason comforts and hugs her (+5 to Julia's score, up to 30).</li>
+                <li>If Julia's score is 30 or higher: Julia tells Jason that her boyfriend Rick said that her boobs are pathetic.</li>
+                <li>With Julia's score at 50+, Jason can convince Julia to take her shirt off. Then he touches her tit and sucks on it (+10 to Julia's score, up to 50).</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Julia's Phone</h4>
-            <p class="rng-note">Time-specific: Available at 21:00, 22:00 and between 8:00-10:00 on weekends</p>
+            <h4>Julia's Phone (Step 10)</h4>
+            <p class="note">Time-specific: Available at 21:00, 22:00 and between 8:00-10:00 on weekends</p>
             <ul class="checklist">
-                <li>Go to the living room while Julia is taking a shower.</li>
+                <li>Go to the living room while Julia is taking a shower (21:00, 22:00 and additionally between 8:00 and 10:00 on weekends).</li>
                 <li>Click on her phone laying on the table.</li>
-                <li>When prompted to enter the password, click on "Cancel".</li>
+                <li>When you have to enter the password, click on "Cancel".</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Pharmacy Visit</h4>
+            <h4>Pharmacy Visit (Step 11)</h4>
             <ul class="checklist">
                 <li>Go to the pharmacy shop during opening hours (weekdays 13:00-19:00).</li>
                 <li>Click on "Go in" and choose "Talk to her" or "Call her".</li>
@@ -420,26 +389,26 @@
         </div>
 
         <div class="interaction">
-            <h4>More Interactions with Janice</h4>
+            <h4>More Interactions with Janice (Step 12)</h4>
             <ul class="checklist">
-                <li>Pool Scene: Find Janice at the pool laying on the lounger. Click on "Come closer" and "Happy to!". Click on "move her leg" and "touch it" (<span class="score-gain">+10 to Janice's score, up to 80</span>).</li>
-                <li>Kitchen Scene: Find Janice washing dishes. Click on "Touch her" to caress her ass, then "Stop" (<span class="score-gain">+10 to Janice's score, up to 100</span>).</li>
-                <li>Sunbathing Scene: Requires suntan lotion. Find Janice sunbathing on a towel by the pool. Click on "Approach her" to apply lotion to her back and buttocks, then "Don't do it" (<span class="score-gain">+5 to Janice's score, up to 100</span>).</li>
+                <li>Pool Scene: Find Janice at the pool laying on the lounger. Click on "Come closer" and "Happy to!". Click on "move her leg" and "touch it" (+10 to Janice's score, up to 80).</li>
+                <li>Kitchen Scene: Find Janice washing dishes. Click on "Touch her" to caress her ass, then "Stop" (+10 to Janice's score, up to 100).</li>
+                <li>Sunbathing Scene: Requires suntan lotion. Find Janice sunbathing on a towel by the pool. Click on "Approach her" to apply lotion to her back and buttocks, then "Don't do it" (+5 to Janice's score, up to 100).</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Intimate Moment with Janice</h4>
+            <h4>Intimate Moment with Janice (Step 13)</h4>
             <p class="score-req">Ensure Janice's score does not exceed 110 for this interaction</p>
             <ul class="checklist">
                 <li>Find Janice in the living room reading a book.</li>
                 <li>Click on "massage shoulders" and "Touch her boobs".</li>
-                <li>Jason caresses Janice's breasts and kisses her (<span class="score-gain">+5 to Janice's score, up to 110</span>).</li>
+                <li>Jason caresses Janice's breasts and kisses her (+5 to Janice's score, up to 110).</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Advanced Kitchen Scene with Janice</h4>
+            <h4>Advanced Kitchen Scene with Janice (Step 14)</h4>
             <p class="score-req">Requires Janice's score to be 100 or higher</p>
             <ul class="checklist">
                 <li>Go to the kitchen when Janice is washing dishes.</li>
@@ -449,20 +418,20 @@
         </div>
 
         <div class="interaction">
-            <h4>Night Activities</h4>
-            <p class="rng-note">Two possible scenes depending on who's in the living room:</p>
+            <h4>Night Activities (Step 15)</h4>
+            <p class="note">Two possible scenes depending on who's in the living room:</p>
             <ul class="checklist">
                 <li>Wake up at night and go to the living room.</li>
                 <li>If no one is there: Click on the TV and choose "Continue watching". The first time gives Jason +10 total energy (now at 15).</li>
-                <li>If Janice appears (requires score 100+ and previous pool interaction): Click on "With your hand" (<span class="score-gain">+10 to Janice's score, up to 150</span>).</li>
+                <li>If Janice appears (requires score 100+ and previous pool interaction): Click on "With your hand" (+10 to Janice's score, up to 150).</li>
                 <li>If Julia is watching porn: Click on "Speak to her". Different scenes occur based on Julia's score and previous interactions.</li>
-                <li>If Julia's score is 90+ and you've done the breast scene: She'll let Jason rub and finger her to climax (<span class="score-gain">+10 to Julia's score, up to 160</span>).</li>
+                <li>If Julia's score is 90+ and you've done the breast scene: She'll let Jason rub and finger her to climax (+10 to Julia's score, up to 160).</li>
             </ul>
             <p class="note">When Jason has less than $80, he can steal money from Janice by going to the bedroom instead of watching TV, clicking on "Just stay in a room" and then on the bag on the left armchair.</p>
         </div>
 
         <div class="interaction">
-            <h4>Increasing Jason's Energy</h4>
+            <h4>Increasing Jason's Energy (Step 16)</h4>
             <p class="score-req">Requires energy to be at 15 from the TV scene</p>
             <ul class="checklist">
                 <li>Go to Jason's room.</li>
@@ -471,7 +440,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Billy Interactions</h4>
+            <h4>Billy Interactions (Step 17)</h4>
             <ul class="checklist">
                 <li>After school, approach Billy. Tell him that you and Julia are adopted.</li>
                 <li>Return to Jason's room, then go back to school and approach Billy again.</li>
@@ -480,7 +449,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Spy Camera Setup</h4>
+            <h4>Spy Camera Setup (Step 18)</h4>
             <ul class="checklist">
                 <li>Go to Jason's room and click on his screen.</li>
                 <li>Click on "Launch browser" and go to the "Electronics" store.</li>
@@ -494,7 +463,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Selling Videos to Billy</h4>
+            <h4>Selling Videos to Billy (Step 19)</h4>
             <ul class="checklist">
                 <li>After school, approach Billy and click on "Sell Video001" to get $50.</li>
                 <li>Hide the spy camera in the bedroom by clicking on the painting.</li>
@@ -505,7 +474,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Bathroom Door</h4>
+            <h4>Bathroom Door (Step 20)</h4>
             <ul class="checklist">
                 <li>Go to the living room when no one is there and no one is in the bathroom.</li>
                 <li>Click on the bathroom door and on "Use screwdriver" to create a peephole.</li>
@@ -513,7 +482,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Julia's Password</h4>
+            <h4>Julia's Password (Step 21)</h4>
             <ul class="checklist">
                 <li>Find Julia in the dining room and choose "Sit next to her".</li>
                 <li>Jason and Julia discuss a password for a phone.</li>
@@ -524,7 +493,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Billy's Advice</h4>
+            <h4>Billy's Advice (Step 22)</h4>
             <ul class="checklist">
                 <li>After school, approach Billy and click on "Chat".</li>
                 <li>Jason and Billy discuss Kelly.</li>
@@ -533,7 +502,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Intimate Pool Scene with Janice</h4>
+            <h4>Intimate Pool Scene with Janice (Step 23)</h4>
             <p class="score-req">Requires suntan lotion</p>
             <ul class="checklist">
                 <li>Go to the pool when Janice is sunbathing on the towel.</li>
@@ -545,7 +514,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Bedroom Scene with Janice</h4>
+            <h4>Bedroom Scene with Janice (Step 24)</h4>
             <p class="score-req">Requires Janice's score to be 120 or higher</p>
             <ul class="checklist">
                 <li>Go to the bedroom when Janice is taking a nap (20:00-22:00).</li>
@@ -556,7 +525,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Emma's Introduction</h4>
+            <h4>Emma's Introduction (Step 25)</h4>
             <ul class="checklist">
                 <li>Go to Emma's house (the house to the right of Jason's).</li>
                 <li>Click on "Ring" to ring the doorbell.</li>
@@ -566,7 +535,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Emma's Workout</h4>
+            <h4>Emma's Workout (Step 26)</h4>
             <p class="score-req">Requires Emma's score to be at least 5</p>
             <ul class="checklist">
                 <li>Go to Emma's backyard (the area behind her house).</li>
@@ -578,7 +547,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Emma's Continued Workouts</h4>
+            <h4>Emma's Continued Workouts (Step 27)</h4>
             <p class="score-req">Requires Emma's score to be at least 10</p>
             <ul class="checklist">
                 <li>Go to Emma's backyard when she is exercising.</li>
@@ -591,7 +560,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Advanced Workout with Emma</h4>
+            <h4>Advanced Workout with Emma (Step 28)</h4>
             <p class="score-req">Requires Emma's score to be at least 15</p>
             <ul class="checklist">
                 <li>Continue helping Emma with her workouts in her backyard.</li>
@@ -603,7 +572,7 @@
         </div>
 
         <div class="interaction">
-            <h4>Pharmacy Relationship</h4>
+            <h4>Pharmacy Relationship (Step 29)</h4>
             <ul class="checklist">
                 <li>Visit the pharmacy regularly to chat with Kelly.</li>
                 <li>Purchase items as needed (condoms, suntan lotion).</li>
@@ -613,359 +582,341 @@
         </div>
     </div>
 
-    <div id="Mid" class="tabcontent">
+    <!-- Version 0.05-0.06 content -->
+    <div id="v005006" class="tabcontent">
         <div class="version-header">Version 0.05-0.06</div>
-        <div class="character-scores">Maximum Character Scores: Janice: 250, Julia: 210, Kelly: 150, Emma: 170</div>
-
+        <div class="max-scores">Maximum Character Scores: Janice: 280, Julia: 210, Kelly: 150, Emma: 170, Rebecca: 50</div>
+        
         <div class="interaction">
-            <h4>Emma's Advanced Workouts</h4>
-            <p class="score-req">Requires Emma's score to be at least 65 from previous version</p>
+            <h4>Billy's Video Deal (Step 30)</h4>
             <ul class="checklist">
-                <li>Continue helping Emma with her workouts in her backyard.</li>
-                <li>New workout positions and interactions become available as her score increases.</li>
-                <li>At score 100+, Emma will allow more intimate touching during exercises.</li>
-                <li>Emma's score can increase up to 170 in these versions.</li>
+                <li>After school, approach Billy. He offers Jason $200 for a blowjob from Janice.</li>
+                <li>Click on "Show him Video003". Billy recognizes the guy in the video as Rick, Julia's boyfriend.</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Kelly's Pharmacy Progression</h4>
-            <p class="score-req">Requires previous interactions with Kelly</p>
+            <h4>Sleep Mask (Step 31)</h4>
             <ul class="checklist">
-                <li>Visit the pharmacy regularly to chat with Kelly.</li>
-                <li>New conversation options become available as her score increases.</li>
-                <li>At higher scores, Kelly will share more personal information.</li>
-                <li>Kelly's score can reach 150 in these versions.</li>
+                <li>Go home and to the bedroom.</li>
+                <li>Click on the nightstand on the right side of the bed.</li>
+                <li>Jason takes a "Sleep mask".</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Janice's Bedroom Progression</h4>
-            <p class="score-req">Requires Janice's score to be at least 150</p>
+            <h4>Setting Up Billy (Step 32)</h4>
             <ul class="checklist">
-                <li>Go to the bedroom when Janice is taking a nap (20:00-22:00).</li>
-                <li>New interaction options become available.</li>
-                <li>At score 200+, more intimate scenes with Janice unlock.</li>
-                <li>Janice's score can increase up to 250 in these versions.</li>
+                <li>Go to the school and approach Billy.</li>
+                <li>Click on "Talk about BJ offer".</li>
+                <li>Jason asks Billy to come to his place at 14:00 and to hide in the bushes by the pool.</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Julia's Relationship Development</h4>
-            <p class="score-req">Requires Julia's score to be at least 160 from previous version</p>
+            <h4>Pool Scene with Janice and Billy (Step 33)</h4>
             <ul class="checklist">
-                <li>New interactions with Julia become available in various locations.</li>
-                <li>At higher scores, Julia will be more receptive to intimate interactions.</li>
-                <li>Julia's score can increase up to 210 in these versions.</li>
+                <li>Go home and to the pool. Catch Janice at the pool laying on the lounger.</li>
+                <li>Click on "Come closer" and "Happy to!".</li>
+                <li>Click on "move her leg", "touch it" and "Pull aside".</li>
+                <li>Click on "Touch her pussy", "Do it!" and "Finger her".</li>
+                <li>When Janice wakes up, she'll want to see Jason's hard cock.</li>
+                <li>Ask Janice to put the sleep mask on.</li>
+                <li>Billy will come and receive a blowjob from Janice.</li>
+                <li>After Billy leaves, Janice will give Jason a blowjob.</li>
+                <li>Julia will appear and catch Janice and Jason.</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Setting Sleeping Location</h4>
+            <h4>Billy's Payment (Step 34)</h4>
             <ul class="checklist">
-                <li>Go to the bedroom before 22:00.</li>
-                <li>Click on the bed and select "Set as sleeping bed" to make Janice's bed your default sleeping location.</li>
-                <li>This enables new nighttime interactions with Janice.</li>
+                <li>The next day after school, approach Billy.</li>
+                <li>Click on "Ask for payment". He pays Jason $200.</li>
+                <li>Billy asks Jason to arrange another blowjob from Janice.</li>
             </ul>
         </div>
 
         <div class="interaction">
-            <h4>Julia's Room Access</h4>
-            <p class="score-req">Requires developing relationship with Julia</p>
+            <h4>Recurring Billy Arrangement (Step 35)</h4>
+            <p class="note">Billy can get a blowjob from Janice at the pool every 7 days</p>
             <ul class="checklist">
-                <li>As your relationship with Julia improves, you gain access to her room.</li>
-                <li>You can eventually set her bed as your sleeping location for nighttime interactions.</li>
+                <li>After school, approach Billy.</li>
+                <li>Click on "Talk about BJ".</li>
+                <li>Billy offers Jason $100 for a blowjob from Janice.</li>
+                <li>Click on "Agree" and Jason receives $100 from Billy.</li>
+                <li>Repeat the pool scene with Janice and Billy.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Advanced Emma Workout (Step 36)</h4>
+            <p class="score-req">Requires Emma's score to be 40 or higher</p>
+            <ul class="checklist">
+                <li>Sneak to Emma's backyard while she is exercising.</li>
+                <li>When she is at her pool, click on "Leave".</li>
+                <li>She asks Jason to help with her workout. Click on "Agree to help".</li>
+                <li>You have two options:
+                    <ul>
+                        <li>"Just finish the exercise": Emma's score increases by 5 (up to 85).</li>
+                        <li>"Rub her butt" (requires Emma's score 80+): Jason rubs against Emma's butt and touches her breast. Emma's score increases by 5 (up to 110).</li>
+                    </ul>
+                </li>
+                <li>If you chose "Rub her butt", you'll have two more options:
+                    <ul>
+                        <li>"Continue workout": The exercise ends normally.</li>
+                        <li>"Kiss her" (requires Emma's score 100+): Jason and Emma kiss. Emma's score increases by 10 (up to 140). Emma shows Jason her breasts.</li>
+                    </ul>
+                </li>
+                <li>If you chose "Kiss her", you'll have two final options:
+                    <ul>
+                        <li>"Kiss her again": They kiss again and Emma asks for future workout help.</li>
+                        <li>"Show your dick": Jason shows Emma his hard cock. With Emma's score at 150+, she'll definitely like it (otherwise 50% chance). Emma's score increases by 10 (up to 170). Jason gets a titjob from Emma.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Nighttime with Janice (Step 37)</h4>
+            <ul class="checklist">
+                <li>At night, Janice sleeps without a blanket.</li>
+                <li>Wake up at night, go to the bedroom and click on "Get on the bed".</li>
+                <li>Jason asks Janice if he can sleep with her tonight.</li>
+                <li>Jason will kiss Janice and remove her bra.</li>
+                <li>You have three options:
+                    <ul>
+                        <li>"Take a rest": Jason and Janice fall asleep. Click on "Keep dreaming" for a dream sequence.</li>
+                        <li>"Get naked": Both get naked and fall asleep. Click on "Keep dreaming" for a different dream sequence.</li>
+                        <li>"Sleep": Jason and Janice simply fall asleep.</li>
+                    </ul>
+                </li>
+                <li>On Fridays and Saturdays, Jason wakes up to Janice giving him a blowjob.</li>
+                <li>Afterward, go to the dining room where Janice is drinking coffee for another intimate scene.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Shower Scene with Janice (Step 38)</h4>
+            <p class="score-req">Requires Janice's score to be 180 or higher</p>
+            <ul class="checklist">
+                <li>Go to the bathroom while Janice is taking a shower (between 20:00 and 22:00).</li>
+                <li>Click on "Continue watching" and "Join her".</li>
+                <li>Jason washes Janice's back.</li>
+                <li>Click on "Ask her to turn around".</li>
+                <li>Click on "Use her thighs" and then "Slide inside".</li>
+                <li>Finally, click on "Pull out" when prompted.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Kelly's Outfit Discussion (Step 39)</h4>
+            <ul class="checklist">
+                <li>Go to the pharmacy shop at 14:00 and click on "Go in".</li>
+                <li>Choose "Talk to her" or "Call her". Chat with Kelly and accept the offer to drink coffee.</li>
+                <li>After Kelly returns from the restroom, click on "Ask about outfit".</li>
+                <li>Kelly tells Jason the website address where he can buy the outfit.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Buying the Pet Suit (Step 40)</h4>
+            <ul class="checklist">
+                <li>Go home and to Jason's room.</li>
+                <li>Click on his screen and on "Launch browser".</li>
+                <li>Click on the "Fetish Outfits" store and buy the "Pet suit - Dog".</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Janice in the Pet Suit (Step 41)</h4>
+            <ul class="checklist">
+                <li>Go to sleep in Jason's bed.</li>
+                <li>When Janice enters Jason's room, click on "Sure" and "Give her Dog suit".</li>
+                <li>Click on "Go to the pool" for a roleplaying scene with Janice.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Janice's Birthday Discussion (Step 42)</h4>
+            <ul class="checklist">
+                <li>Catch Julia in the living room checking her phone.</li>
+                <li>Click on "Sit next to her" and "Talk about mom".</li>
+                <li>Jason and Julia talk about Janice's upcoming birthday.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Birthday Gift Advice from Kelly (Step 43)</h4>
+            <ul class="checklist">
+                <li>Go to the pharmacy shop at 14:00 and click on "Go in".</li>
+                <li>Choose "Talk to her" or "Call her". Chat with Kelly and accept the offer to drink coffee.</li>
+                <li>After Kelly returns from the restroom, click on "Ask for advice".</li>
+                <li>Kelly recommends a romantic dinner, sexy dress, and nice jewelry for Janice's birthday.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Showing Julia the Video (Step 44)</h4>
+            <p class="note">Make sure you have Video003 in your inventory</p>
+            <ul class="checklist">
+                <li>Catch Julia in the living room checking her phone.</li>
+                <li>Click on "Sit next to her" and "Show video with Rick".</li>
+                <li>Jason shows Julia the video where her boyfriend Rick is with Emma.</li>
+                <li>Julia starts crying and Jason comforts her.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Spying on Julia and Janice (Step 45)</h4>
+            <p class="score-req">Requires Julia's score to be 80 or higher and completing Step 44</p>
+            <ul class="checklist">
+                <li>Go to the hallway around 19:00.</li>
+                <li>Click on Julia's door until the "Go in" option appears without Jason saying "Julia seems to be in her room."</li>
+                <li>In Julia's room, click on the wardrobe and on "Hide inside".</li>
+                <li>Click on "Wait" to witness an intimate scene between Janice and Julia.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Nighttime Julia Scenes (Step 46)</h4>
+            <ul class="checklist">
+                <li>Wake up at night and go to Julia's room repeatedly until you've seen all three scenes:
+                    <ul>
+                        <li>Julia sleeping: Hide in the wardrobe to see Janice come in.</li>
+                        <li>Julia crying: Jason offers to help her become a model.</li>
+                        <li>Empty room: Hide in the wardrobe to witness Julia and Janice with butt plugs.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Julia in Lingerie (Step 47)</h4>
+            <ul class="checklist">
+                <li>Go to Julia's room between 20:00 and 22:00.</li>
+                <li>Find her standing near the window in lingerie.</li>
+                <li>Two possible scenes can occur (50% chance for each):
+                    <ul>
+                        <li>Scene without Janice: Julia gives Jason a blowjob. If you have a condom, you can have sex with Julia.</li>
+                        <li>Scene with Janice: A threesome scene occurs. If you have a condom, you can have sex with both Janice and Julia.</li>
+                    </ul>
+                </li>
+                <li>Julia's score increases by 10 (up to 180) in the first scene.</li>
+                <li>Both Janice's and Julia's scores increase by 10 (Janice: up to 250, Julia: up to 210) in the second scene.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Kelly at the Pharmacy (Step 48)</h4>
+            <p class="score-req">Requires Kelly's score to be 50 or higher</p>
+            <ul class="checklist">
+                <li>Go to the pharmacy shop and click on "Go in".</li>
+                <li>Wait until Kelly is busy.</li>
+                <li>Click on "Sneak to her" and "Pull the skirt".</li>
+                <li>For 100% success, Kelly's score must be 80 or higher (otherwise 50% chance).</li>
+                <li>Kelly's score increases by 5 (up to 85).</li>
+                <li>Kelly will show Jason her underwear in the break room.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Advanced Scene with Kelly (Step 49)</h4>
+            <p class="score-req">Requires Kelly's score to be 100 or higher</p>
+            <ul class="checklist">
+                <li>Go to the pharmacy shop and click on "Go in".</li>
+                <li>Wait until Kelly is busy.</li>
+                <li>Click on "Sneak to her" and "Pull the skirt".</li>
+                <li>In the break room, click on "Take off panties".</li>
+                <li>With Kelly's score at 100+ and 20+ energy, click on "Try to fuck" (50% chance to succeed, 100% with score 110+).</li>
+                <li>Two ending options:
+                    <ul>
+                        <li>"Cum inside": Kelly's score decreases by 50. You'll need to pay Kelly $100 for pills.</li>
+                        <li>"Cum on her face": Kelly's score increases by 10 (up to 150).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Kelly's Lingerie Discussion (Step 50)</h4>
+            <ul class="checklist">
+                <li>The next day, go to the pharmacy shop at 14:00 and click on "Go in".</li>
+                <li>Choose "Talk to her" or "Call her". Chat with Kelly and accept the offer to drink coffee.</li>
+                <li>After Kelly returns from the restroom, click on "Ask about lingerie".</li>
+                <li>Kelly mentions she has a nice dress she could sell to Jason.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Buying Kelly's Dress (Step 51)</h4>
+            <ul class="checklist">
+                <li>The next day, go to the pharmacy shop at 14:00 again.</li>
+                <li>Choose "Talk to her" or "Call her". Chat with Kelly and accept the offer to drink coffee.</li>
+                <li>After Kelly returns from the restroom, click on "Ask about the dress".</li>
+                <li>Kelly will model the red dress for Jason.</li>
+                <li>Click on "Pay her" to buy the dress for $150.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Stealing Emma's Necklace (Step 52)</h4>
+            <ul class="checklist">
+                <li>Go to Emma's house on Thursday until 19:00 and knock on the door.</li>
+                <li>Click on "Mow the lawn" to earn $50.</li>
+                <li>Click on "Ask for glass of water".</li>
+                <li>When Emma leaves, click on the red box under the TV.</li>
+                <li>Click on "Steal it" to take Emma's necklace.</li>
+                <li>Click on "Just wait" to finish the scene.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Janice's Outfit Customization (Step 53)</h4>
+            <p class="score-req">Requires Janice's score to be 250 or higher</p>
+            <ul class="checklist">
+                <li>Go to the bedroom between 20:00 and 22:00 when Janice is changing clothes.</li>
+                <li>Choose between "Daily clothes" or "Swimsuit".</li>
+                <li>Customize the colors and appearance of the outfit.</li>
+                <li>Ask Janice to wear the selected outfit.</li>
+            </ul>
+        </div>
+
+        <div class="interaction">
+            <h4>Julia's Outfit Customization (Step 54)</h4>
+            <ul class="checklist">
+                <li>Go to Julia's room when she's on her bed checking her phone.</li>
+                <li>Click on "Talk about outfits".</li>
+                <li>Choose between "Daily outfits" or "Swimsuits".</li>
+                <li>For daily outfits, select from "The X-mas outfit", "Black lingerie", or "Underwear".</li>
+                <li>For swimsuits, customize the colors and appearance.</li>
+                <li>Choose whether Julia should wear the outfit all the time or just for the day.</li>
             </ul>
         </div>
     </div>
 
-    <div id="MidLate" class="tabcontent">
+    <!-- Version 0.07-0.08 content will be added here -->
+    <div id="v007008" class="tabcontent">
         <div class="version-header">Version 0.07-0.08</div>
-        <div class="character-scores">Maximum Character Scores: Janice: 270, Julia: 270, Kelly: 150, Emma: 240, Rebecca: 30</div>
-
-        <div class="interaction">
-            <h4>Rebecca Introduction</h4>
-            <ul class="checklist">
-                <li>Attend school and participate in math class.</li>
-                <li>Meet Rebecca, your math teacher.</li>
-                <li>Initial interactions establish your relationship.</li>
-                <li>Rebecca's score starts at 0 and can reach 30 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Emma's Relationship Deepens</h4>
-            <p class="score-req">Requires Emma's score to be at least 170 from previous versions</p>
-            <ul class="checklist">
-                <li>Continue interactions with Emma at her house and backyard.</li>
-                <li>New scenes and dialogue options become available.</li>
-                <li>Emma's score can increase up to 240 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Janice's Advanced Interactions</h4>
-            <p class="score-req">Requires Janice's score to be at least 250</p>
-            <ul class="checklist">
-                <li>New intimate scenes with Janice become available in various locations.</li>
-                <li>At score 250+, Janice can visit Jason's room at night if his bed is set as the sleeping bed.</li>
-                <li>Go to the living room, find Janice reading a book, click on "Talk to her" and "Ask her to visit you at night".</li>
-                <li>Janice's score can increase up to 270 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Julia's Advanced Interactions</h4>
-            <p class="score-req">Requires Julia's score to be at least 210</p>
-            <ul class="checklist">
-                <li>New intimate scenes with Julia become available in various locations.</li>
-                <li>At score 260+, Julia can visit Jason's room at night if his bed is set as the sleeping bed.</li>
-                <li>Go to Julia's room when she is on her bed checking her phone, click on "Ask her to visit you at night".</li>
-                <li>Julia's score can increase up to 270 in these versions.</li>
-            </ul>
-        </div>
+        <div class="max-scores">Maximum Character Scores: Janice: 300, Julia: 240, Kelly: 150, Emma: 180, Rebecca: 100, Adrianna: 50</div>
+        
+        <!-- Content will be added from 0.07.txt and 0.08.txt -->
     </div>
 
-    <div id="Late" class="tabcontent">
+    <!-- Version 0.09-0.10 content will be added here -->
+    <div id="v009010" class="tabcontent">
         <div class="version-header">Version 0.09-0.10</div>
-        <div class="character-scores">Maximum Character Scores: Janice: 300, Julia: 300, Kelly: 200, Emma: 280, Rebecca: 100, Adrianna: 50</div>
-
-        <div class="interaction">
-            <h4>John's Return</h4>
-            <p class="note">John appears on day 60</p>
-            <ul class="checklist">
-                <li>John stays home for 7 days and is away for 14 days.</li>
-                <li>While John is home, Janice and Julia won't change clothes.</li>
-                <li>Jason's bed becomes the default sleeping location while John is home.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Adrianna Introduction</h4>
-            <ul class="checklist">
-                <li>Visit the studio to meet Adrianna, the photographer.</li>
-                <li>Initial interactions establish your relationship.</li>
-                <li>Jason can send text messages to Adrianna until 19:00.</li>
-                <li>Adrianna's score starts at 0 and can reach 50 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Rebecca Relationship Development</h4>
-            <p class="score-req">Requires Rebecca's score to be at least 30</p>
-            <ul class="checklist">
-                <li>Continue interactions with Rebecca at school.</li>
-                <li>New scenes and dialogue options become available.</li>
-                <li>Rebecca's score can increase up to 100 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Billy's Advanced Involvement</h4>
-            <p class="score-req">Requires completing earlier Billy interactions</p>
-            <ul class="checklist">
-                <li>Billy can be involved in events with Janice.</li>
-                <li>These events are optional and require specific previous interactions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Character Score Progression</h4>
-            <ul class="checklist">
-                <li>Janice's score can increase up to 300</li>
-                <li>Julia's score can increase up to 300</li>
-                <li>Kelly's score can increase up to 200</li>
-                <li>Emma's score can increase up to 280</li>
-            </ul>
-        </div>
+        <div class="max-scores">Maximum Character Scores: Janice: 320, Julia: 300, Kelly: 200, Emma: 250, Rebecca: 150, Adrianna: 100, Rachel: 50</div>
+        
+        <!-- Content will be added from 0.09.txt and 0.10.txt -->
     </div>
 
-    <div id="End" class="tabcontent">
+    <!-- Version 0.11+ content will be added here -->
+    <div id="v011plus" class="tabcontent">
         <div class="version-header">Version 0.11+</div>
-        <div class="character-scores">Maximum Character Scores: Janice: 350, Julia: 350, Kelly: 250, Emma: 320, Rebecca: 200, Adrianna: 150, Danielle: 200, Rachel: 150, Kira: 100, Michelle: 100, Kendra: 100</div>
-
-        <div class="interaction">
-            <h4>Danielle's Arrival</h4>
-            <p class="note">Danielle appears on day 100</p>
-            <ul class="checklist">
-                <li>Meet Danielle, Jason's and Julia's aunt (Janice's sister).</li>
-                <li>Choose her appearance (tattoo and/or piercing or none).</li>
-                <li>Begin interactions to develop your relationship with her.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Danielle's Initial Interactions</h4>
-            <ul class="checklist">
-                <li>Find Danielle in the living room and click on "Talk to her" to introduce yourself.</li>
-                <li>Danielle will share information about her relationship with Janice and her past.</li>
-                <li>Danielle's score starts at 0 and increases with each interaction.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Danielle's Room</h4>
-            <p class="score-req">Requires Danielle's score to be at least 30</p>
-            <ul class="checklist">
-                <li>Visit Danielle's room (the guest room) when she's there.</li>
-                <li>Click on "Knock on the door" and then "Enter" when invited.</li>
-                <li>Various interactions become available based on her score and time of day.</li>
-                <li>Morning visits may find her doing yoga or getting dressed.</li>
-                <li>Evening visits may find her relaxing or preparing for bed.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Danielle's Massage</h4>
-            <p class="score-req">Requires Danielle's score to be at least 50</p>
-            <ul class="checklist">
-                <li>Find Danielle in her room in the evening and offer a massage.</li>
-                <li>Click on "Offer massage" when the option appears.</li>
-                <li>Follow the prompts to progress through the massage scene.</li>
-                <li>As her score increases, more intimate massage options become available.</li>
-                <li>At score 100+, the massage can lead to more intimate interactions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Rachel's Introduction</h4>
-            <ul class="checklist">
-                <li>After progressing Billy's storyline, you'll eventually meet his mother Rachel.</li>
-                <li>Initial interactions establish your relationship.</li>
-                <li>Rachel's score starts at 0 and can increase through various interactions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Rachel's House Visits</h4>
-            <p class="score-req">Requires Rachel's score to be at least 30</p>
-            <ul class="checklist">
-                <li>Visit Rachel's house when invited by Billy.</li>
-                <li>Various interactions become available based on her score and time of day.</li>
-                <li>As her score increases, more intimate interactions become available.</li>
-                <li>Rachel's score can reach up to 150 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Hospital Introduction</h4>
-            <ul class="checklist">
-                <li>Visit the hospital to meet Yuki (the receptionist) and Kendra (Emma's niece).</li>
-                <li>Initial interactions establish your relationships.</li>
-                <li>Kendra's score starts at 0 and can increase through various interactions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Kendra's Relationship</h4>
-            <p class="score-req">Requires Emma's score to be at least 250</p>
-            <ul class="checklist">
-                <li>Emma will introduce Jason to her niece Kendra who works at the hospital.</li>
-                <li>Visit the hospital during Kendra's shifts to interact with her.</li>
-                <li>Various interactions become available based on her score and time of day.</li>
-                <li>As her score increases, more intimate interactions become available.</li>
-                <li>Kendra's score can reach up to 100 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Cheerleader Storyline</h4>
-            <ul class="checklist">
-                <li>At school, you'll meet Kira, the cheerleader captain.</li>
-                <li>Initial interactions establish your relationship.</li>
-                <li>Progress through this storyline to eventually meet Michelle (Kira's mother).</li>
-                <li>Kira's score starts at 0 and can increase through various interactions.</li>
-                <li>Michelle's score starts at 0 and can increase through various interactions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Rebecca's Advanced Relationship</h4>
-            <p class="score-req">Requires Rebecca's score to be at least 100</p>
-            <ul class="checklist">
-                <li>Continue interactions with Rebecca at school and eventually at her home.</li>
-                <li>New scenes and dialogue options become available as her score increases.</li>
-                <li>At higher scores, Rebecca will invite Jason to her home for private tutoring.</li>
-                <li>These tutoring sessions can lead to more intimate interactions.</li>
-                <li>Rebecca's score can reach up to 200 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Adrianna's Photography Sessions</h4>
-            <p class="score-req">Requires Adrianna's score to be at least 50</p>
-            <ul class="checklist">
-                <li>Continue visiting the studio to interact with Adrianna.</li>
-                <li>As her score increases, she'll offer Jason modeling opportunities.</li>
-                <li>These photography sessions can lead to more intimate interactions.</li>
-                <li>Adrianna's score can reach up to 150 in these versions.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>John's Fate</h4>
-            <p class="note">Decision occurs around day 474</p>
-            <ul class="checklist">
-                <li>When John returns home after a long absence, you'll have the opportunity to decide his fate.</li>
-                <li>Options include allowing him to stay or forcing him to leave permanently.</li>
-                <li>This decision significantly impacts future gameplay and character interactions.</li>
-                <li>If John stays, certain intimate interactions with Janice and Julia become limited.</li>
-                <li>If John leaves, new storylines and interactions become available.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Janice's Pregnancy</h4>
-            <p class="note">Available in later game progression</p>
-            <p class="score-req">Requires specific intimate interactions with Janice</p>
-            <ul class="checklist">
-                <li>Through specific unprotected intimate interactions, Janice can become pregnant.</li>
-                <li>Pregnancy duration can be modified through the cheats menu (30, 90, 130, or 270 days).</li>
-                <li>Janice's pregnancy affects her appearance and available interactions.</li>
-                <li>New storylines and dialogue options become available during pregnancy.</li>
-                <li>The pregnancy can lead to various outcomes depending on your choices.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Julia's Outfit Progression</h4>
-            <p class="score-req">Requires Julia's score to be at least 300</p>
-            <ul class="checklist">
-                <li>At high relationship scores, you can influence Julia's clothing choices.</li>
-                <li>Purchase new outfits for Julia through Jason's computer.</li>
-                <li>Each outfit has a different maximum score that determines where Julia will wear it.</li>
-                <li>Higher outfit scores allow Julia to wear more revealing outfits in more locations.</li>
-                <li>The highest tier outfits (score 100-120) unlock special interactions and scenes.</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>Maximum Character Development</h4>
-            <ul class="checklist">
-                <li>Janice's score can reach up to 350</li>
-                <li>Julia's score can reach up to 350</li>
-                <li>Kelly's score can reach up to 250</li>
-                <li>Emma's score can reach up to 320</li>
-                <li>Rebecca's score can reach up to 200</li>
-                <li>Adrianna's score can reach up to 150</li>
-                <li>Danielle's score can reach up to 200</li>
-                <li>Rachel's score can reach up to 150</li>
-                <li>Kira's score can reach up to 100</li>
-                <li>Michelle's score can reach up to 100</li>
-                <li>Kendra's score can reach up to 100</li>
-            </ul>
-        </div>
-
-        <div class="interaction">
-            <h4>End-Game Choices</h4>
-            <ul class="checklist">
-                <li>As you approach the end of the current content, several major decisions become available.</li>
-                <li>These choices determine the ultimate direction of Jason's relationships.</li>
-                <li>Different endings are available based on which characters you've focused on.</li>
-                <li>Some endings involve exclusive relationships, while others allow for multiple relationships.</li>
-                <li>Your choices throughout the game determine which endings are available to you.</li>
-            </ul>
-        </div>
+        <div class="max-scores">Maximum Character Scores: Janice: 350, Julia: 350, Kelly: 250, Emma: 320, Rebecca: 200, Adrianna: 150, Danielle: 200, Rachel: 150, Kira: 100, Michelle: 100, Kendra: 100</div>
+        
+        <!-- Content will be added from 0.11.txt and beyond -->
     </div>
 
     <h2>Conclusion</h2>
@@ -977,7 +928,7 @@
     
     <p>Enjoy your journey through "The Twist," and may your choices lead to the outcomes you desire!</p>
 
-    <button onclick="saveProgress()">Save Progress</button>
+    <button id="saveBtn" onclick="saveProgress()">Save Progress</button>
 
     <script>
         function openVersion(evt, versionName) {
@@ -997,7 +948,47 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
 
+        // Initialize checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create checkboxes for all checklist items
+            const checklistItems = document.querySelectorAll('.checklist li');
+            checklistItems.forEach(item => {
+                const checkbox = document.createElement('span');
+                checkbox.className = 'checkbox';
+                checkbox.textContent = '☐';
+                item.prepend(checkbox);
+                
+                // Load saved state
+                const savedState = localStorage.getItem('twist_guide_' + item.textContent.trim());
+                if (savedState === 'completed') {
+                    item.classList.add('completed');
+                    item.querySelector('.checkbox').textContent = '☑';
+                }
+                
+                // Add click event
+                item.addEventListener('click', function() {
+                    this.classList.toggle('completed');
+                    const checkboxSpan = this.querySelector('.checkbox');
+                    if (this.classList.contains('completed')) {
+                        checkboxSpan.textContent = '☑';
+                        localStorage.setItem('twist_guide_' + this.textContent.trim(), 'completed');
+                    } else {
+                        checkboxSpan.textContent = '☐';
+                        localStorage.removeItem('twist_guide_' + this.textContent.trim());
+                    }
+                });
+            });
+        });
+
         function saveProgress() {
+            // Get all completed items
+            const completedItems = document.querySelectorAll('.checklist li.completed');
+            
+            // Save to localStorage
+            completedItems.forEach(item => {
+                localStorage.setItem('twist_guide_' + item.textContent.trim(), 'completed');
+            });
+            
             alert("Progress saved successfully!");
         }
     </script>
