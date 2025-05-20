@@ -1,0 +1,9 @@
+0.52  Janice:550  Julia:550  Kelly:450  Emma:510  Rebecca:400  Adrianna:255  Rachel:500  Danielle:510  Kira:410  Kendra:300  Michelle:325
+-----------------------------------------------------------------------------------------------------------------------------------------
+ 991. Go to Jason's room. Janice will appear and she will want to talk about Kelly.
+ 992. Go to Danielle's house. And talk to her abou the meeting. Danielle asks to deliver an envelope to Rachel
+ 993. Go to Rachel's house and knock on the door, deliver the envelope and invite her to the meeting.
+ 994. Go the school, talk to Rebecca and invite her to the meeting.
+ 995. Go to Emma's house and invite her to the meeting.
+ 996. Go to the hospital and talk to Kendra about Emma's appointment and invite her to the meeting.
+ 997. The scene can be repeated through PC>Diary.
